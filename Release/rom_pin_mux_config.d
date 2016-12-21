@@ -2,7 +2,6 @@
 
 rom_pin_mux_config.obj: ../rom_pin_mux_config.c
 rom_pin_mux_config.obj: ../pin_mux_config.h
-rom_pin_mux_config.obj: /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdint.h
 rom_pin_mux_config.obj: /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/inc/hw_types.h
 rom_pin_mux_config.obj: /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/inc/hw_memmap.h
 rom_pin_mux_config.obj: /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/inc/hw_gpio.h
@@ -15,7 +14,6 @@ rom_pin_mux_config.obj: /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/d
 
 ../rom_pin_mux_config.c: 
 ../pin_mux_config.h: 
-/opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdint.h: 
 /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/inc/hw_types.h: 
 /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/inc/hw_memmap.h: 
 /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/inc/hw_gpio.h: 

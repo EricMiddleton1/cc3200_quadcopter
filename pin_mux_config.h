@@ -36,66 +36,13 @@
 //
 //*****************************************************************************
 
-// This file was automatically generated on 7/30/2016 at 3:56:43 PM
+// This file was automatically generated on 12/19/2016 at 10:14:05 PM
 // by TI PinMux version
 //
 //*****************************************************************************
 
 #ifndef __PIN_MUX_CONFIG_H__
 #define __PIN_MUX_CONFIG_H__
-
-#include <stdint.h>
-
-#include "hw_types.h"
-#include "hw_memmap.h"
-#include "hw_gpio.h"
-#include "pin.h"
-#include "gpio.h"
-
-#include "prcm.h"
-#include "rom.h"
-#include "rom_map.h"
-
-
-#define LED_PORT	GPIOA1_BASE
-
-#define LED_RED		0x02
-#define LED_ORANGE	0x04
-#define LED_GREEN	0x08
-
-#define SW_PORT	GPIOA1_BASE
-#define SW_PIN		0x20
-
-#define GEQ_PORT		GPIOA0_BASE
-#define GEQ_RESET_PIN	0x10
-#define GEQ_STROBE_PIN	0x40
-
-#define CS_CHEST_PORT	GPIOA3_BASE
-#define CS_CHEST_PIN	0x10
-
-#define CS_ARM_L_PORT	GPIOA2_BASE
-#define CS_ARM_L_PIN	0x02
-
-#define CS_ARM_R_PORT	GPIOA1_BASE
-#define CS_ARM_R_PIN	0x80
-
-#define CS_LEG_L_PORT	GPIOA0_BASE
-#define CS_LEG_L_PIN	0x02
-
-#define CS_LEG_R_PORT	GPIOA2_BASE//GPIOA3_BASE
-#define CS_LEG_R_PIN	0x40//0x02
-
-typedef enum {
-	CS_CHEST = 0,
-	CS_ARM_L,
-	CS_ARM_R,
-	CS_LEG_L,
-	CS_LEG_R
-} CS_e;
-
-extern const uint32_t CS_PORT[5];
-extern const uint8_t CS_PIN[5];
-extern const uint8_t CS_COUNT;
 
 extern void PinMuxConfig(void);
 

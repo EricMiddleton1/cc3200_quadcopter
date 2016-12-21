@@ -8,8 +8,9 @@ GEN_OPTS__FLAG := --cmd_file="/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200
 GEN_CMDS__FLAG := -l"/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/ti_rtos/ti_rtos_config/ccs/Default/configPkg/linker.cmd"
 
 ORDERED_OBJS += \
-"./BatteryMonitor.obj" \
 "./Console.obj" \
+"./LogTask.obj" \
+"./Timer.obj" \
 "./main.obj" \
 "./network_common.obj" \
 "./rom_pin_mux_config.obj" \
@@ -164,8 +165,8 @@ cc3200_quadcopter.bin: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "BatteryMonitor.obj" "Console.obj" "main.obj" "network_common.obj" "rom_pin_mux_config.obj" "task_wifi.obj" "uart_if.obj" 
-	-$(RM) "BatteryMonitor.d" "Console.d" "main.d" "network_common.d" "rom_pin_mux_config.d" "task_wifi.d" "uart_if.d" 
+	-$(RM) "Console.obj" "LogTask.obj" "Timer.obj" "main.obj" "network_common.obj" "rom_pin_mux_config.obj" "task_wifi.obj" "uart_if.obj" 
+	-$(RM) "Console.d" "LogTask.d" "Timer.d" "main.d" "network_common.d" "rom_pin_mux_config.d" "task_wifi.d" "uart_if.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

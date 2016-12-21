@@ -21,6 +21,9 @@ task_wifi.obj: /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink
 task_wifi.obj: /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink/include/netcfg.h
 task_wifi.obj: /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink/include/wlan_rx_filters.h
 task_wifi.obj: /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink/include/../source/spawn.h
+task_wifi.obj: /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/inc/hw_types.h
+task_wifi.obj: /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/driverlib/gpio.h
+task_wifi.obj: ../pin_mux_config.h
 
 ../task_wifi.c: 
 ../task_wifi.h: 
@@ -43,3 +46,6 @@ task_wifi.obj: /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink
 /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink/include/netcfg.h: 
 /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink/include/wlan_rx_filters.h: 
 /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink/include/../source/spawn.h: 
+/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/inc/hw_types.h: 
+/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/driverlib/gpio.h: 
+../pin_mux_config.h: 

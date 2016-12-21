@@ -7,8 +7,9 @@ CMD_SRCS += \
 ../cc3200v1p32.cmd 
 
 C_SRCS += \
-../BatteryMonitor.c \
 ../Console.c \
+../LogTask.c \
+../Timer.c \
 ../main.c \
 ../network_common.c \
 ../rom_pin_mux_config.c \
@@ -16,8 +17,9 @@ C_SRCS += \
 /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/example/common/uart_if.c 
 
 C_DEPS += \
-./BatteryMonitor.d \
 ./Console.d \
+./LogTask.d \
+./Timer.d \
 ./main.d \
 ./network_common.d \
 ./rom_pin_mux_config.d \
@@ -25,8 +27,9 @@ C_DEPS += \
 ./uart_if.d 
 
 OBJS += \
-./BatteryMonitor.obj \
 ./Console.obj \
+./LogTask.obj \
+./Timer.obj \
 ./main.obj \
 ./network_common.obj \
 ./rom_pin_mux_config.obj \
@@ -34,8 +37,9 @@ OBJS += \
 ./uart_if.obj 
 
 OBJS__QUOTED += \
-"BatteryMonitor.obj" \
 "Console.obj" \
+"LogTask.obj" \
+"Timer.obj" \
 "main.obj" \
 "network_common.obj" \
 "rom_pin_mux_config.obj" \
@@ -43,8 +47,9 @@ OBJS__QUOTED += \
 "uart_if.obj" 
 
 C_DEPS__QUOTED += \
-"BatteryMonitor.d" \
 "Console.d" \
+"LogTask.d" \
+"Timer.d" \
 "main.d" \
 "network_common.d" \
 "rom_pin_mux_config.d" \
@@ -52,8 +57,9 @@ C_DEPS__QUOTED += \
 "uart_if.d" 
 
 C_SRCS__QUOTED += \
-"../BatteryMonitor.c" \
 "../Console.c" \
+"../LogTask.c" \
+"../Timer.c" \
 "../main.c" \
 "../network_common.c" \
 "../rom_pin_mux_config.c" \

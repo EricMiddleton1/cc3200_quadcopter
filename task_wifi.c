@@ -6,6 +6,9 @@
  */
 
 #include "task_wifi.h"
+#include "hw_types.h"
+#include "gpio.h"
+#include "pin_mux_config.h"
 
 
 //Stack size for socket task
@@ -90,7 +93,7 @@ int wifi_start(char* ssid, char *psk) {
 	 * 		mysimplelink
 	 */
 
-	//Restart simplelink to allow above changes to take ef
+	//Restart simplelink to allow above changes to take effect
 	sl_Stop(100);
 	if(sl_Start(NULL, NULL, NULL) < 0) {
 		//Error starting wifi subsystem

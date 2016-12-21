@@ -1,10 +1,8 @@
 /*
- * Stickman V2
+ * cc3200_quadcopter
  *
  * Written by Eric Middleton
  */
-#include <stdlib.h>
-#include <string.h>
 
 // Simplelink includes
 #include "simplelink.h"
@@ -19,31 +17,27 @@
 #include "utils.h"
 #include "gpio.h"
 #include "Console.h"
+#include "LogTask.h"
 
 // free_rtos/ti-rtos includes
 #include "osi.h"
 
 // common interface includes
 #include "common.h"
+
+#include "Timer.h"
 #ifndef NOTERM
 #include "uart_if.h"
 #endif
 
-#define APP_NAME                "CC3200 Quadcopter"
-#define APPLICATION_VERSION     "0.0.1"
 #define OSI_STACK_SIZE          2048
-
-#define WIFI_PSK                "quadcopterpsk"
 
 #define DEFAULT_BAUD			115200
 
 #include "pin_mux_config.h"
 
 //Custom tasks
-#include "BatteryMonitor.h"
 #include "task_wifi.h"
-
-#include <math.h>
 
 //*****************************************************************************
 //
@@ -90,20 +84,12 @@ int main(void)
     //Initialize the pin configuration
     PinMuxConfig();
 
-    //Initialize LEDs
-    GPIODirModeSet(LED_PORT, LED_RED | LED_ORANGE | LED_GREEN,
-    		GPIO_DIR_MODE_OUT);
-    //Clear the LEDs
-    GPIOPinWrite(LED_PORT, LED_RED | LED_ORANGE | LED_GREEN, 0x00);
-
-    //Set the red LED
-    GPIOPinWrite(LED_PORT, LED_RED, 0xFF);
-
-    //Initialize the battery monitoring system
-    BatteryMonitor_init();
-
     //Initialize the wifi system
     wifi_init();
+
+    Timer_init();
+
+    LogTask_init();
 
     int retval;
 
