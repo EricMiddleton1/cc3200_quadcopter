@@ -10,6 +10,13 @@ Console.obj: ../Console.c $(GEN_OPTS) | $(GEN_HDRS)
 	@echo 'Finished building: $<'
 	@echo ' '
 
+IMU.obj: ../IMU.c $(GEN_OPTS) | $(GEN_HDRS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: ARM Compiler'
+	"/opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=vfplib --abi=eabi -me --include_path="/opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include" --include_path="C:/ti/CC3200SDK_1.2.0/cc3200-sdk" --include_path="/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink/" --include_path="/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink/include" --include_path="/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink/source" --include_path="/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/example/common" --include_path="/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/driverlib" --include_path="/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/inc" --include_path="/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/oslib" --include_path="/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink_extlib/provisioninglib" -g --define=ccs --define=USE_TIRTOS --define=SL_PLATFORM_MULTI_THREADED --define=cc3200 --diag_wrap=off --diag_warning=225 --display_error_number --preproc_with_compile --preproc_dependency="IMU.d" $(GEN_OPTS__FLAG) "$(shell echo $<)"
+	@echo 'Finished building: $<'
+	@echo ' '
+
 LogTask.obj: ../LogTask.c $(GEN_OPTS) | $(GEN_HDRS)
 	@echo 'Building file: $<'
 	@echo 'Invoking: ARM Compiler'
@@ -21,6 +28,13 @@ Timer.obj: ../Timer.c $(GEN_OPTS) | $(GEN_HDRS)
 	@echo 'Building file: $<'
 	@echo 'Invoking: ARM Compiler'
 	"/opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=vfplib --abi=eabi -me --include_path="/opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include" --include_path="C:/ti/CC3200SDK_1.2.0/cc3200-sdk" --include_path="/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink/" --include_path="/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink/include" --include_path="/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink/source" --include_path="/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/example/common" --include_path="/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/driverlib" --include_path="/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/inc" --include_path="/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/oslib" --include_path="/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink_extlib/provisioninglib" -g --define=ccs --define=USE_TIRTOS --define=SL_PLATFORM_MULTI_THREADED --define=cc3200 --diag_wrap=off --diag_warning=225 --display_error_number --preproc_with_compile --preproc_dependency="Timer.d" $(GEN_OPTS__FLAG) "$(shell echo $<)"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+i2c_if.obj: /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/example/common/i2c_if.c $(GEN_OPTS) | $(GEN_HDRS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: ARM Compiler'
+	"/opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=vfplib --abi=eabi -me --include_path="/opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include" --include_path="C:/ti/CC3200SDK_1.2.0/cc3200-sdk" --include_path="/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink/" --include_path="/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink/include" --include_path="/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink/source" --include_path="/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/example/common" --include_path="/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/driverlib" --include_path="/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/inc" --include_path="/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/oslib" --include_path="/home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink_extlib/provisioninglib" -g --define=ccs --define=USE_TIRTOS --define=SL_PLATFORM_MULTI_THREADED --define=cc3200 --diag_wrap=off --diag_warning=225 --display_error_number --preproc_with_compile --preproc_dependency="i2c_if.d" $(GEN_OPTS__FLAG) "$(shell echo $<)"
 	@echo 'Finished building: $<'
 	@echo ' '
 

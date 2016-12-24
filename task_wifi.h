@@ -10,6 +10,7 @@
 
 #include <stdint.h>
 #include <stdlib.h>
+#include <stdarg.h>
 
 #include "simplelink.h"
 
@@ -40,5 +41,6 @@ void wifi_stop();
 
 int wifi_send(char* buffer, int size);
 
+void wifi_printf(const char* format, ... );
 
 #endif /* TASK_WIFI_H_ */

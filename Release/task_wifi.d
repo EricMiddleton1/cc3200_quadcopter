@@ -5,6 +5,7 @@ task_wifi.obj: ../task_wifi.h
 task_wifi.obj: /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdint.h
 task_wifi.obj: /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdlib.h
 task_wifi.obj: /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/linkage.h
+task_wifi.obj: /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdarg.h
 task_wifi.obj: /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink/include/simplelink.h
 task_wifi.obj: /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink/include/../user.h
 task_wifi.obj: /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/string.h
@@ -24,12 +25,16 @@ task_wifi.obj: /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink
 task_wifi.obj: /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/inc/hw_types.h
 task_wifi.obj: /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/driverlib/gpio.h
 task_wifi.obj: ../pin_mux_config.h
+task_wifi.obj: /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdio.h
+task_wifi.obj: /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdarg.h
+task_wifi.obj: /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdarg.h
 
 ../task_wifi.c: 
 ../task_wifi.h: 
 /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdint.h: 
 /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdlib.h: 
 /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/linkage.h: 
+/opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdarg.h: 
 /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink/include/simplelink.h: 
 /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink/include/../user.h: 
 /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/string.h: 
@@ -49,3 +54,6 @@ task_wifi.obj: ../pin_mux_config.h
 /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/inc/hw_types.h: 
 /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/driverlib/gpio.h: 
 ../pin_mux_config.h: 
+/opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdio.h: 
+/opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdarg.h: 
+/opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdarg.h: 

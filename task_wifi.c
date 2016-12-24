@@ -10,6 +10,8 @@
 #include "gpio.h"
 #include "pin_mux_config.h"
 
+#include <stdio.h>
+#include <stdarg.h>
 
 //Stack size for socket task
 #define SOCK_STACK_SIZE		4096
@@ -19,11 +21,15 @@
 //Port for TCP connection
 #define TCP_PORT			8888
 
+#define PRINTF_BUFFER_SIZE  256
+
 APState_e volatile _apState = UNINITIALIZED;
 
 SockState_e volatile _socketState = STOPPED;
 
 int _clientSocket;
+
+static volatile char *_printfBuffer;
 
 //task handles
 OsiTaskHandle _socketTaskHandle;
@@ -37,6 +43,9 @@ void wifi_init() {
 	//Update states
 	_apState = UNINITIALIZED;
 	_socketState = STOPPED;
+
+	//Allocate the printf buffer
+	_printfBuffer = malloc(PRINTF_BUFFER_SIZE);
 
 	//Launch the socket task
 	int retval = osi_TaskCreate(task_socket,
@@ -315,6 +324,15 @@ int wifi_send(char *buffer, int size) {
 	else {
 		return -1;
 	}
+}
+
+void wifi_printf(const char* format, ... ) {
+    va_list args;
+    va_start(args, format);
+
+    vsnprintf(_printfBuffer, PRINTF_BUFFER_SIZE, format, args);
+
+    wifi_send(_printfBuffer, sizeof(_printfBuffer));
 }
 
 int waitForClient(int listenSocket, SlSockAddr_t* clientAddr, SlSocklen_t addrLen) {

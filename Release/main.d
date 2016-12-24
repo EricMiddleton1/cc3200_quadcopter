@@ -36,6 +36,7 @@ main.obj: /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/example/common/
 main.obj: ../pin_mux_config.h
 main.obj: ../task_wifi.h
 main.obj: /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdlib.h
+main.obj: /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdarg.h
 
 ../main.c: 
 /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink/include/simplelink.h: 
@@ -73,3 +74,4 @@ main.obj: /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdlib.h
 ../pin_mux_config.h: 
 ../task_wifi.h: 
 /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdlib.h: 
+/opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdarg.h: 

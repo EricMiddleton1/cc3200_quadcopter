@@ -6,6 +6,7 @@ LogTask.obj: ../task_wifi.h
 LogTask.obj: /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdint.h
 LogTask.obj: /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdlib.h
 LogTask.obj: /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/linkage.h
+LogTask.obj: /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdarg.h
 LogTask.obj: /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink/include/simplelink.h
 LogTask.obj: /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink/include/../user.h
 LogTask.obj: /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/string.h
@@ -25,6 +26,7 @@ LogTask.obj: /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink/i
 LogTask.obj: /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdlib.h
 LogTask.obj: /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/string.h
 LogTask.obj: ../Timer.h
+LogTask.obj: ../IMU.h
 
 ../LogTask.c: 
 ../LogTask.h: 
@@ -32,6 +34,7 @@ LogTask.obj: ../Timer.h
 /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdint.h: 
 /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdlib.h: 
 /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/linkage.h: 
+/opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdarg.h: 
 /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink/include/simplelink.h: 
 /home/eric/ti/tirex-content/CC3200SDK_1.1.0/cc3200-sdk/simplelink/include/../user.h: 
 /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/string.h: 
@@ -51,3 +54,4 @@ LogTask.obj: ../Timer.h
 /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/stdlib.h: 
 /opt/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.0.LTS/include/string.h: 
 ../Timer.h: 
+../IMU.h: 

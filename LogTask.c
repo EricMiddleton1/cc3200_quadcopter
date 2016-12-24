@@ -10,8 +10,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include "Timer.h"
+#include "IMU.h"
 
 #define STACK_SIZE      2048
+
+#define PI  3.141592654f
 
 static void __logTask();
 
@@ -25,31 +28,43 @@ void LogTask_init() {
 }
 
 void __logTask() {
-    char msg[64];
+    static char msg[64];
     struct Receiver receive;
+    struct SensorData sensors;
+    struct Angle angle;
+
+    //Initialize the IMU
+    IMU_init();
 
     while(1) {
         static uint8_t count = 0;
+        float m0, m1, m2, m3;
+
+        IMU_update();
+
         Receiver_get(&receive);
+        IMU_getAngle(&angle);
+        IMU_getSensors(&sensors);
 
-        float motorValue = receive.throttle;
-        if(motorValue > 0.1)
-            motorValue += receive.pitch / 5;
+        m0 = m1 = m2 = m3 = receive.throttle;
 
-        Motor_set(motorValue, motorValue, motorValue, motorValue);
-
-        if(receive.isConnected) {
-            //sprintf(msg, "%3.2f %3.2f %3.2f %3.2f\r\n",
-                    //receive.throttle, receive.yaw, receive.pitch, receive.roll);
-            sprintf(msg, "Motor value: %2.2f\r\n", motorValue);
+        if(receive.throttle > 0.1) {
+            m0 += -0.2f * receive.pitch + 0.2f * receive.roll;
+            m1 += -0.2f * receive.pitch - 0.2f * receive.roll;
+            m2 += 0.2f * receive.pitch - 0.2f * receive.roll;
+            m3 += 0.2f * receive.pitch + 0.2f * receive.roll;
         }
-        else {
-            strcpy(msg, "Not connected");
+
+        Motor_set(m0, m1, m2, m3);
+
+        if(!(count & 0x03)) {
+            //sprintf(msg, "Accel: %8d %8d %8d\r\n", (int)sensors.aX, (int)sensors.aY, (int)sensors.aZ);
+            sprintf(msg, "Angle: %4.2f, %4.2f, %4.2f\r\n", angle.pitch*180.f/PI, angle.yaw*180.f/PI, angle.roll*180.f/PI);
+            wifi_send(msg, strlen(msg));
         }
-        wifi_send(msg, strlen(msg));
 
         count++;
 
-        osi_Sleep(50);
+        osi_Sleep(5);
     }
 }
