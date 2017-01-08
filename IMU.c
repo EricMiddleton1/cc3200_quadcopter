@@ -124,6 +124,9 @@
 #define ACT_THS             0x3E
 #define ACT_DUR             0x3F
 
+#define DTR_FACTOR          (3.141592654f / 180.f)
+
+#define GYRO_COMP           0.95f
 
 #define CPU_FREQ        80000000L
 
@@ -147,19 +150,19 @@ void IMU_init() {
     //--Initialize the gyro first--//
     //760hz data rate, 100Hz bandwidth
     //Enable X, Y, Z axis
-    //_writeReg(ADDR_GYRO, CTRL_REG1_G, 0xF7);
+    _writeReg(ADDR_GYRO, CTRL_REG1_G, 0xFF);
 
-    //HPF normal mode, 0.09Hz HPF cutoff frequency
-    //_writeReg(ADDR_GYRO, CTRL_REG2_G, 0x09);
+    //HPF normal mode, 1.8Hz HPF cutoff frequency
+    _writeReg(ADDR_GYRO, CTRL_REG2_G, 0x05);
 
     //No interrupt status pin
     //_writeReg(ADDR_GYRO, CTRL_REG3_G, 0x00);
 
     //500dps full-scale mode, self-test mode disabled
-    //_writeReg(ADDR_GYRO, CTRL_REG4_G, 0x10);
+    _writeReg(ADDR_GYRO, CTRL_REG4_G, 0x10);
 
     //HPF disabled
-    //_writeReg(ADDR_GYRO, CTRL_REG5_G, 0x00);
+    _writeReg(ADDR_GYRO, CTRL_REG5_G, 0x00);
 
     //--Initialize the accelerometer--//
     //400Hz update rate, all axis enabled
@@ -189,9 +192,31 @@ void IMU_update() {
         _aZ = -((data[5] << 8) | data[4]);
     }
 
+    reg = OUT_X_L_G | 0x80;
+    if(I2C_IF_ReadFrom(ADDR_GYRO, &reg, 1, data, 6) != 0) {
+        char *msg = "Error reading gyro\r\n";
+        wifi_send(msg, strlen(msg));
+    }
+    else {
+        _gX = (data[1] << 8) | data[0];
+        _gY = (data[3] << 8) | data[2];
+        _gZ = (data[5] << 8) | data[4];
+    }
+
+    float dX = _gX * 500.f * DTR_FACTOR / 32768.f;
+    float dY = _gY * 500.f * DTR_FACTOR / 32768.f;
+    float dZ = _gZ * 500.f * DTR_FACTOR / 32768.f;
+
+    //char msg[64];
+    //sprintf(msg, "%4.2f \t%4.2f \t%4.2f\r\n", dX, dY, dZ);
+    //wifi_send(msg, strlen(msg));
+
+    float DT = 0.005f;
+
     //Compute angle from accelerometer
-    _pitch = -atan2(_aX, _aZ);
-    _roll = -atan2(_aY, _aZ);
+    _pitch = (_pitch + -dY*DT)*(GYRO_COMP) + -atan2(_aX, _aZ)*(1.f - GYRO_COMP);
+    _yaw += -dZ*DT;
+    _roll = (_roll + -dX*DT)*(GYRO_COMP) + -atan2(_aY, _aZ)*(1.f - GYRO_COMP);
 }
 
 void IMU_getAngle(struct Angle *_angle) {

@@ -58,7 +58,8 @@ void __logTask() {
         Motor_set(m0, m1, m2, m3);
 
         if(!(count & 0x03)) {
-            //sprintf(msg, "Accel: %8d %8d %8d\r\n", (int)sensors.aX, (int)sensors.aY, (int)sensors.aZ);
+            //sprintf(msg, "Gyro: %8d %8d %8d\r\n",
+                    //(int)sensors.gX, (int)sensors.gY, (int)sensors.gZ);
             sprintf(msg, "Angle: %4.2f, %4.2f, %4.2f\r\n", angle.pitch*180.f/PI, angle.yaw*180.f/PI, angle.roll*180.f/PI);
             wifi_send(msg, strlen(msg));
         }
